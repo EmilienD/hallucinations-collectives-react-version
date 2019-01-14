@@ -10,6 +10,7 @@
 
 # production
 /build
+hc.zip
 
 # misc
 .DS_Store
