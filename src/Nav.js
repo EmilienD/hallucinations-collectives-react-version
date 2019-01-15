@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const NavStyle = styled.nav``;
 
@@ -41,6 +42,11 @@ const NavItem = ({ to, children }) => (
     </NavLink>
   </Li>
 );
+
+NavItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default function Nav() {
   return (

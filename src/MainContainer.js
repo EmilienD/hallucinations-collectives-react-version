@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import PropTypes from 'prop-types';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -21,3 +22,6 @@ export default function MainContainer(props) {
     </Fragment>
   );
 }
+MainContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+};

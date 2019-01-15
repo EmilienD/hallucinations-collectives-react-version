@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import path from 'lodash/fp/path';
-import wp from './wpService';
-import WpRendered from './WpRendered';
+import wp from '../services/wpService';
+import WpRendered from '../helperComponents/WpRendered';
 
 const HomeStyle = styled(WpRendered)`
   a {

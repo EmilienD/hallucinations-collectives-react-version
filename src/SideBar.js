@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Svg from './LazyLoadingInlineSvg';
+import Svg from './helperComponents/LazyLoadingInlineSvg';
 
 const CHAIN_LINK_HEIGHT_VALUE = 30;
 const CHAIN_LINK_HEIGHT_UNIT = 'vh';
