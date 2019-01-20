@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import assetsService from '../services/assetsService';
 
 export default class LazyLoadingInlineSvg extends Component {
   constructor() {
@@ -11,9 +12,7 @@ export default class LazyLoadingInlineSvg extends Component {
 
   componentDidMount() {
     const { src } = this.props;
-    fetch(src)
-      .then(res => res.text())
-      .then(markup => this.setState({ markup }));
+    assetsService.get(src).then(markup => this.setState({ markup }));
   }
 
   render() {

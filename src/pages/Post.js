@@ -1,0 +1,51 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import path from 'lodash/fp/path';
+import wpService from '../services/wpService';
+import WpRendered from '../helperComponents/WpRendered';
+import { FullSize, H2 } from './Post.style';
+import Thumbnail from './Thumbnail';
+
+export default class Post extends Component {
+  constructor() {
+    super();
+    this.state = {
+      featuredMedia: {},
+    };
+  }
+
+  componentDidMount() {
+    const { post } = this.props;
+    wpService
+      .getMediaById(post.featured_media)
+      .then(featuredMedia => this.setState({ featuredMedia }));
+  }
+
+  render() {
+    const { post, thumbnail, basePath } = this.props;
+    const { featuredMedia } = this.state;
+    return thumbnail ? (
+      <Link to={`/${basePath}${post.slug}`}>
+        <Thumbnail media={featuredMedia} post={post} />
+      </Link>
+    ) : (
+      <FullSize>
+        <H2>{path('title.rendered', post)}</H2>
+        <WpRendered rendered={path('content.rendered', post)} />
+      </FullSize>
+    );
+  }
+}
+// @TODO: extract thumbnail and full post
+
+Post.propTypes = {
+  post: PropTypes.object.isRequired,
+  thumbnail: PropTypes.bool,
+  basePath: PropTypes.string,
+};
+
+Post.defaultProps = {
+  thumbnail: true,
+  basePath: '',
+};

@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import path from 'lodash/fp/path';
 import wp from '../services/wpService';
-import WpRendered from '../helperComponents/WpRendered';
-
-const HomeStyle = styled(WpRendered)`
-  a {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: red;
-  }
-`;
+import { HomeStyle } from './Home.style';
 
 export default class Home extends Component {
   constructor() {
@@ -27,7 +19,6 @@ export default class Home extends Component {
 
   render() {
     const { page } = this.state;
-
     return <HomeStyle rendered={path('content.rendered', page)} />;
   }
 }

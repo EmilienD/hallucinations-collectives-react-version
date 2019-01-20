@@ -5,42 +5,47 @@ import {
 import styled from 'styled-components';
 import SideBar from './SideBar';
 import MainContainer from './MainContainer';
+import Header from './Header';
 import Home from './pages/Home';
-import PracticalInformation from './pages/PracticalInformation';
 import LineUp from './pages/LineUp';
+import StandardPage from './pages/StandardPageContainer';
 import About from './pages/About';
-import Nav from './Nav';
+import Tickets from './pages/Tickets';
 import Breakpoint from './helperComponents/Breakpoint';
 
 const ContentContainer = styled.div`
   padding: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   @media screen and (min-width: ${Breakpoint.S}) {
     padding: 40px;
   }
 `;
-
-function App() {
-  return (
-    <MainContainer>
-      <Breakpoint renderS={() => <SideBar />} />
-      <header className="App-header" />
-      <Router>
-        <ContentContainer>
-          <Nav />
-          <Switch>
-            <Route path="/accueil" component={Home} />
-            <Route path="/infos-pratiques" component={PracticalInformation} />
-            <Route path="/programmation" component={LineUp} />
-            <Route path="/a-propos" component={About} />
-            <Route path="/contributions" component={() => 'Concontritribubutiontion'} />
-            <Redirect exact strict from="/" to="/accueil" />
-            <Redirect exact from="/tickets" to="http://yesno.wtf" />
-            <Route component={() => <h1>Quatre Sans Quatre</h1>} />
-          </Switch>
-        </ContentContainer>
-      </Router>
-    </MainContainer>
-  );
-}
+const App = () => (
+  <MainContainer>
+    <Breakpoint renderS={() => <SideBar />} />
+    <Router>
+      <ContentContainer>
+        <Header />
+        <Switch>
+          <Route
+            path="/:url*"
+            exact
+            strict
+            render={({ location }) => <Redirect to={`${location.pathname}/`} />}
+          />
+          <Route path="/accueil" component={Home} />
+          <Route path="/infos-pratiques" render={() => <StandardPage slug="infos-pratiques" />} />
+          <Route path="/programmation/:band?" render={route => <LineUp route={route} />} />
+          <Route path="/a-propos" render={() => <StandardPage slug="a-propos" />} />
+          <Route path="/contributions" component={() => 'Concontritribubutiontion'} />
+          <Route from="/tickets" render={() => <StandardPage slug="tickets" />} />
+          <Redirect from="/" to="/accueil" />
+          <Route component={() => <h1>Quatre Sans Quatre</h1>} />
+        </Switch>
+      </ContentContainer>
+    </Router>
+  </MainContainer>
+);
 
 export default App;
