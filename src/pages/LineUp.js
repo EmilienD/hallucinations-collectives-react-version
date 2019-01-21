@@ -20,6 +20,9 @@ const ThumbnailContainer = styled.div`
   flex-wrap: wrap;
   padding: 0 0 1em 0;
   justify-content: center;
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default class LineUp extends Component {
@@ -28,7 +31,6 @@ export default class LineUp extends Component {
     this.state = {
       lineUpPosts: [],
       lineUpTags: [],
-      selectedPost: null,
     };
     this.setPosts = this.setPosts.bind(this);
     this.isSelectedPost = this.isSelectedPost.bind(this);

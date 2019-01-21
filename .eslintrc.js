@@ -7,5 +7,6 @@ module.exports = {
     document: true,
     fetch: true,
     window: true,
+    Audio: true,
   },
 };

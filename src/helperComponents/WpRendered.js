@@ -19,6 +19,9 @@ const WpStyle = styled.div`
     margin: auto;
     display: block;
   }
+  .wp-block-image {
+    text-align: center;
+  }
 `;
 
 export default function WpRendered({ rendered, ...props }) {

@@ -2,11 +2,13 @@ import React, { Fragment } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
 import Breakpoint from './helperComponents/Breakpoint';
+import FallingWilhelm from './FallingWilhelm';
+import Contact from './Contact';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Hallu";
-    src: url("/assets/YES.ttf") format("truetype");
+    src: url("/assets/Animals.ttf") format("truetype");
   }
   @font-face {
     font-family: "Main";
@@ -15,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
   body {
   font-family: 'Main', 'Courier New', Courier, monospace;
     margin: 0;
-    background-image: url('/assets/bg.png');
+    background-image: url('/assets/bg006.jpg');
+    font-size: 22px;
   }
   body > div {
     display: flex;
@@ -26,9 +29,9 @@ const GlobalStyle = createGlobalStyle`
   body > div > *:last-child {
     flex-grow: 1;
   }
-  @media screen and (min-width:${Breakpoint.M} ){
+  @media screen and (min-width:${Breakpoint.S} ){
     body {
-      font-size: 22px;
+      font-size: 25px;
     }
   }
 `;
@@ -38,7 +41,16 @@ const MainContainer = (props) => {
   return (
     <Fragment>
       <GlobalStyle />
-      <svg style={{ display: 'none' }}>
+      <FallingWilhelm />
+      <Contact />
+      <svg
+        style={{
+          position: 'fixed',
+          width: 0,
+          height: 0,
+          pointerEvents: 'none',
+        }}
+      >
         <filter id="wiggleFilter">
           <feTurbulence type="fractalNoise" baseFrequency="0.001" numOctaves="2">
             <animate

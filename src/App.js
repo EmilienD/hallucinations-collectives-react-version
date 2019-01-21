@@ -35,8 +35,8 @@ const App = () => (
             render={({ location }) => <Redirect to={`${location.pathname}/`} />}
           />
           <Route path="/accueil" component={Home} />
-          <Route path="/infos-pratiques" render={() => <StandardPage slug="infos-pratiques" />} />
           <Route path="/programmation/:band?" render={route => <LineUp route={route} />} />
+          <Route path="/infos-pratiques" render={() => <StandardPage slug="infos-pratiques" />} />
           <Route path="/a-propos" render={() => <StandardPage slug="a-propos" />} />
           <Route path="/contributions" component={() => 'Concontritribubutiontion'} />
           <Route from="/tickets" render={() => <StandardPage slug="tickets" />} />

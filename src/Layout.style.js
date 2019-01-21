@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import Svg from './helperComponents/LazyLoadingInlineSvg';
 
-const CHAIN_LINK_HEIGHT_VALUE = 30;
+const CHAIN_LINK_HEIGHT_VALUE = 40;
 const CHAIN_LINK_HEIGHT_UNIT = 'vh';
 const CHAIN_LINK_HEIGHT = CHAIN_LINK_HEIGHT_VALUE + CHAIN_LINK_HEIGHT_UNIT;
 
@@ -51,7 +51,7 @@ const RotatingLogoStyle = styled(Svg)`
   animation: ${rotation} 30s infinite linear;
 `;
 
-export const RotatingLogo = () => <RotatingLogoStyle src="/assets/logo.svg" />;
+export const RotatingLogo = () => <RotatingLogoStyle src="/assets/LogoR.svg" />;
 
 export const Container = styled.div`
   flex-shrink: 0;
@@ -67,14 +67,4 @@ export const H1 = styled.h1`
   font-family: Hallu;
   width: 100%;
   padding: 0 0 0 1em;
-`;
-
-export const H1Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  & > *:first-child {
-    flex-shrink: 0;
-  }
 `;

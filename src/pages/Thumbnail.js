@@ -14,6 +14,10 @@ export const ThumbnailStyled = styled.div`
   width: 320px;
   height: 320px;
   margin: 0 10px 10px 0;
+  padding: 1em;
+  && {
+    text-decoration: none;
+  }
   & > * {
     display: none;
   }
@@ -26,7 +30,7 @@ export const ThumbnailStyled = styled.div`
 `;
 
 const Thumbnail = ({ post, media }) => (
-  <ThumbnailStyled backgroundImage={path('media_details.sizes.thumbnail.source_url', media)}>
+  <ThumbnailStyled backgroundImage={path('media_details.sizes.medium.source_url', media)}>
     {path('title.rendered', post)}
     <WpRendered rendered={path('excerpt.rendered', post)} />
   </ThumbnailStyled>
