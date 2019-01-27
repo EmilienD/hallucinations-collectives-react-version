@@ -1,4 +1,4 @@
-import config from '../config/local';
+import config from '../config';
 
 const CURRENT_EDITION = new Date().getFullYear();
 
@@ -30,7 +30,7 @@ const getCategories = toCache('categories')(get('categories'));
 const getLineupCategory = () => getCategories('name=programmation').then(cats => cats[0]);
 
 const getCurrentLineupPosts = () => Promise.all([getLineupCategory(), getTags().then(findYearTag)]).then(
-  ([lineupCategory, yearTag]) => getPosts(`tags=${yearTag.id}&category=${lineupCategory.id}`),
+  ([lineupCategory, yearTag]) => getPosts(`per_page=100&tags=${yearTag.id}&category=${lineupCategory.id}`),
 );
 
 export default {

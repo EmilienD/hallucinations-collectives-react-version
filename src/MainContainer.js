@@ -4,20 +4,21 @@ import PropTypes from 'prop-types';
 import Breakpoint from './helperComponents/Breakpoint';
 import FallingWilhelm from './FallingWilhelm';
 import Contact from './Contact';
+import config from './config';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Hallu";
-    src: url("/assets/Animals.ttf") format("truetype");
+    src: url("${config.publicRoot}/assets/Animals.ttf") format("truetype");
   }
   @font-face {
     font-family: "Main";
-    src: url("/assets/zai_ConsulPolishTypewriter.ttf") format("truetype");
+    src: url("${config.publicRoot}/assets/zai_ConsulPolishTypewriter.ttf") format("truetype");
   }
   body {
   font-family: 'Main', 'Courier New', Courier, monospace;
     margin: 0;
-    background-image: url('/assets/bg006.jpg');
+    background-image: url('${config.publicRoot}/assets/bg006.jpg');
     font-size: 22px;
   }
   body > div {
@@ -41,7 +42,7 @@ const MainContainer = (props) => {
   return (
     <Fragment>
       <GlobalStyle />
-      <FallingWilhelm />
+      {config.withFallingMan && <FallingWilhelm />}
       <Contact />
       <svg
         style={{

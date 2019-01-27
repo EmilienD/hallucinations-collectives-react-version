@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Svg from './helperComponents/LazyLoadingInlineSvg';
+import config from './config';
 
 const FALLING_MAN_SIZE = 10;
 
@@ -26,7 +27,7 @@ class FallingWilhelm extends Component {
     this.fall = this.fall.bind(this);
     this.reset = this.reset.bind(this);
 
-    const scream = new Audio('/assets/WilhelmScream.mp3');
+    const scream = new Audio(`${config.publicRoot}/assets/WilhelmScream.mp3`);
     scream.play();
     scream.pause();
     this.scream = scream;
@@ -50,7 +51,7 @@ class FallingWilhelm extends Component {
     return (
       <FallingInStyle onTransitionEnd={this.reset} className={falling ? 'falling' : ''}>
         <media />
-        <Svg src="/assets/fallingman.svg" />
+        <Svg src={`${config.publicRoot}/assets/fallingman.svg`} />
       </FallingInStyle>
     );
   }

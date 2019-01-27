@@ -26,12 +26,14 @@ export default class Post extends Component {
     const { post, thumbnail, basePath } = this.props;
     const { featuredMedia } = this.state;
     return thumbnail ? (
-      <Link to={`/${basePath}${post.slug}`}>
+      <Link to={`/${basePath}${post.slug}/${window.location.search}`}>
         <Thumbnail media={featuredMedia} post={post} />
       </Link>
     ) : (
       <FullSize>
-        <H2>{path('title.rendered', post)}</H2>
+        <H2>
+          <WpRendered rendered={path('title.rendered', post)} />
+        </H2>
         <WpRendered rendered={path('content.rendered', post)} />
       </FullSize>
     );

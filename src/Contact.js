@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Svg from './helperComponents/LazyLoadingInlineSvg';
+import config from './config';
 
 const ContactStyle = styled.div`
   position: fixed;
@@ -15,10 +16,10 @@ const ContactStyle = styled.div`
 const Contact = () => (
   <ContactStyle>
     <a href="https://www.facebook.com/leshallus/">
-      <Svg src="/assets/facebook.svg" />
+      <Svg src={`${config.publicRoot}/assets/facebook.svg`} />
     </a>
     <a href="mailto:leshalluscollectives@gmail.com">
-      <Svg src="/assets/mail.svg" />
+      <Svg src={`${config.publicRoot}/assets/mail.svg`} />
     </a>
   </ContactStyle>
 );

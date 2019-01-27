@@ -31,7 +31,7 @@ export const ThumbnailStyled = styled.div`
 
 const Thumbnail = ({ post, media }) => (
   <ThumbnailStyled backgroundImage={path('media_details.sizes.medium.source_url', media)}>
-    {path('title.rendered', post)}
+    <WpRendered rendered={path('title.rendered', post)} />
     <WpRendered rendered={path('excerpt.rendered', post)} />
   </ThumbnailStyled>
 );
