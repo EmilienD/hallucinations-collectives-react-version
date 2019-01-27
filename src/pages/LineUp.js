@@ -9,6 +9,8 @@ import wpService from '../services/wpService';
 import Post from './Post';
 import TagSelector from './TagSelector';
 
+const DATE_TAG_REGEX = /^[0-9]{2}\/[0-9]{2}$/;
+
 const LineupContainer = styled.div`
   flex-direction: column;
   justify-content: center;
@@ -35,13 +37,20 @@ export default class LineUp extends Component {
     this.setPosts = this.setPosts.bind(this);
     this.isSelectedPost = this.isSelectedPost.bind(this);
     this.hasAllSearchTags = this.hasAllSearchTags.bind(this);
+    this.sortPosts = this.sortPosts.bind(this);
   }
 
   componentDidMount() {
     wpService
       .getCurrentLineupPosts()
       .then(this.setPosts)
-      .then(lineUpPosts => wpService.getTags().then(tags => this.setTags(tags, lineUpPosts)));
+      .then(lineUpPosts => wpService.getTags().then((tags) => {
+        const lineUpTags = this.setTags(tags, lineUpPosts);
+        const { route } = this.props;
+        if (!route.location.search) {
+          route.history.replace({ ...route.location, search: `?tags=${lineUpTags[0].id}` });
+        }
+      }));
   }
 
   setPosts(lineUpPosts) {
@@ -54,8 +63,9 @@ export default class LineUp extends Component {
       (acc, lup) => lup.tags.reduce((acc2, tagId) => assoc(tagId, true, acc2), acc),
       {},
     );
-    const currentEdition = new Date().getFullYear().toString();
-    const lineUpTags = tags.filter(t => t.name !== currentEdition && lupTagIdMap[t.id]);
+    const lineUpTags = tags.filter(t => DATE_TAG_REGEX.test(t.name) && lupTagIdMap[t.id]).sort();
+    this.eventTag = tags.find(t => t.name === 'activité');
+    this.bandTag = tags.find(t => t.name === 'groupe');
     this.setState({ lineUpTags });
     return lineUpTags;
   }
@@ -78,6 +88,21 @@ export default class LineUp extends Component {
     return path('match.params.band', route) === post.slug;
   }
 
+  sortPosts(a, b) {
+    if (this.bandTag) {
+      const aIsBand = a.tags.includes(this.bandTag.id);
+      const bIsBand = b.tags.includes(this.bandTag.id);
+      // bands come before events
+      if (aIsBand && !bIsBand) {
+        return -1;
+      }
+      if (!aIsBand && bIsBand) {
+        return 1;
+      }
+    }
+    return path('title.rendered', a).localeCompare(path('title.rendered', b));
+  }
+
   render() {
     const { lineUpPosts, lineUpTags } = this.state;
     const { route } = this.props;
@@ -88,9 +113,12 @@ export default class LineUp extends Component {
         {selectedPost && <Post post={selectedPost} thumbnail={false} />}
         <TagSelector tags={lineUpTags} location={location} />
         <ThumbnailContainer>
-          {lineUpPosts.filter(this.hasAllSearchTags).map(lup => (
-            <Post key={lup.id} post={lup} basePath="programmation/" thumbnail />
-          ))}
+          {lineUpPosts
+            .sort(this.sortPosts)
+            .filter(this.hasAllSearchTags)
+            .map(lup => (
+              <Post key={lup.id} post={lup} basePath="programmation/" thumbnail />
+            ))}
         </ThumbnailContainer>
       </LineupContainer>
     );
