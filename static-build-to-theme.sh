@@ -6,4 +6,7 @@ echo "<?php
 require 'front-page.php';
 " > index.php
 
+cp ../functions.php .
+cp ../style.css .
+
 zip -r ../hc.zip *
