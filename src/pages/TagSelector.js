@@ -9,6 +9,7 @@ const TagList = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 0;
 `;
 
 const TagListItem = styled.li`

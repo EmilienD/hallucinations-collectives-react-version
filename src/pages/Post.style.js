@@ -25,6 +25,6 @@ export const FullSize = styled('article')`
   padding: 1em;
   flex-grow: 2;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 export const H2 = styled.h2``;

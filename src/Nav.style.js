@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Breakpoints from './helperComponents/Breakpoint';
 
 export const NavStyle = styled.nav``;
 
@@ -17,7 +18,10 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   text-align: center;
   flex-grow: 1;
-  padding: 0 2em 2em 0;
+  padding: 0 1em 1em 0;
+  @media screen and (min-width: ${Breakpoints.S}) {
+    padding: 0 2em 2em 0;
+  }
   &:last-child {
     padding: 0 0 2em 0;
   }

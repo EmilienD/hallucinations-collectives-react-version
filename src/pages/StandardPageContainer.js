@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import path from 'lodash/fp/path';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import wpService from '../services/wpService';
 import WpRendered from '../helperComponents/WpRendered';
+
+const WpStyle = styled(WpRendered)`
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1em;
+  border-radius: 1em;
+`;
 
 class StandardPageContainer extends Component {
   constructor() {
@@ -17,7 +24,7 @@ class StandardPageContainer extends Component {
 
   render() {
     const { page } = this.state;
-    return <WpRendered rendered={path('content.rendered', page)} />;
+    return <WpStyle rendered={path('content.rendered', page)} />;
   }
 }
 
