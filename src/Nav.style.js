@@ -19,7 +19,7 @@ export const Li = styled.li`
   text-align: center;
   flex-grow: 1;
   padding: 0 1em 1em 0;
-  @media screen and (min-width: ${Breakpoints.S}) {
+  @media screen and (min-width: ${Breakpoints.S}px) {
     padding: 0 2em 2em 0;
   }
   &:last-child {

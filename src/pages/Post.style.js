@@ -20,11 +20,19 @@ export const Thumbnail = styled.div`
   }
 `;
 export const FullSize = styled('article')`
-  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 1em;
-  padding: 1em;
   flex-grow: 2;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  max-width: 38em;
+  padding: 1em;
+  .wp-block-image {
+    position: relative;
+  }
+  .wp-block-image figcaption {
+    position: absolute;
+    bottom: 0;
+  }
 `;
 export const H2 = styled.h2``;
