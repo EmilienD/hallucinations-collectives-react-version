@@ -14,13 +14,40 @@ const WpStyle = styled.div`
   }
   img {
     max-width: 100%;
-  }
-  iframe {
-    margin: auto;
-    display: block;
+    height: auto;
   }
   .wp-block-image {
     text-align: center;
+  }
+  .wp-block-embed-youtube {
+    margin: 20px auto;
+  }
+  .wp-block-embed-youtube > .wp-block-embed__wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+  }
+  .wp-block-embed-youtube > .wp-block-embed__wrapper > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .gm-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+  }
+  .gm-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
   }
 `;
 
