@@ -64,8 +64,8 @@ export default class LineUp extends Component {
       {},
     );
     const lineUpTags = tags.filter(t => DATE_TAG_REGEX.test(t.name) && lupTagIdMap[t.id]).sort();
-    this.eventTag = tags.find(t => t.name === 'activité');
-    this.bandTag = tags.find(t => t.name === 'groupe');
+    this.eventTag = tags.find(t => t.name === 'Expériences');
+    this.bandTag = tags.find(t => t.name === 'Concerts');
     this.setState({ lineUpTags });
     return lineUpTags;
   }
