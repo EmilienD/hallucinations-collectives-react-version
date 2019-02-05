@@ -4,10 +4,15 @@ import Svg from './helperComponents/LazyLoadingInlineSvg';
 import config from './config';
 
 const ContactStyle = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 1em;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: auto;
+  a {
+    padding: 0.5em;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
   svg {
     height: 1.5em;
   }

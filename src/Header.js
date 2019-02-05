@@ -13,7 +13,7 @@ const Header = () => (
           src={`${config.publicRoot}/assets/LogoR.svg`}
         />
       )}
-      renderS={() => null}
+      renderM={() => null}
     />
     <Nav />
   </header>

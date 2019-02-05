@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 import PropTypes from 'prop-types';
 import Breakpoint from './helperComponents/Breakpoint';
 import FallingWilhelm from './FallingWilhelm';
-import Contact from './Contact';
 import config from './config';
 
 const GlobalStyle = createGlobalStyle`
@@ -16,7 +15,8 @@ const GlobalStyle = createGlobalStyle`
     src: url("${config.publicRoot}/assets/zai_ConsulPolishTypewriter.ttf") format("truetype");
   }
   body {
-  font-family: 'Main', 'Courier New', Courier, monospace;
+    scroll-behavior: smooth;
+    font-family: 'Main', 'Courier New', Courier, monospace;
     margin: 0;
     background-image: url('${config.publicRoot}/assets/bg006.jpg');
     font-size: 22px;
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
   body > div > *:last-child {
     flex-grow: 1;
   }
-  @media screen and (min-width:${Breakpoint.S} ){
+  @media screen and (min-width:${Breakpoint.S}px ){
     body {
       font-size: 25px;
     }
@@ -43,7 +43,6 @@ const MainContainer = (props) => {
     <Fragment>
       <GlobalStyle />
       {config.withFallingMan && <FallingWilhelm />}
-      <Contact />
       <svg
         style={{
           position: 'fixed',

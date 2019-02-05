@@ -10,18 +10,19 @@ import Home from './pages/Home';
 import LineUp from './pages/LineUp';
 import StandardPage from './pages/StandardPageContainer';
 import Breakpoint from './helperComponents/Breakpoint';
+import Contact from './Contact';
 
 const ContentContainer = styled.div`
   padding: 20px;
   overflow-y: scroll;
   overflow-x: hidden;
-  @media screen and (min-width: ${Breakpoint.S}) {
-    padding: 40px;
+  @media screen and (min-width: ${Breakpoint.M}px) {
+    padding: 40px 10% 40px 40px;
   }
 `;
 const App = () => (
   <MainContainer>
-    <Breakpoint renderS={() => <SideBar />} />
+    <Breakpoint renderM={() => <SideBar />} />
     <Router>
       <ContentContainer>
         <Header />
@@ -43,6 +44,7 @@ const App = () => (
           <Redirect from="/" to="/accueil" />
           <Route component={() => <h1>Quatre Sans Quatre</h1>} />
         </Switch>
+        <Contact />
       </ContentContainer>
     </Router>
   </MainContainer>
