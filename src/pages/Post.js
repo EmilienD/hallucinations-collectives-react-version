@@ -22,6 +22,13 @@ export default class Post extends Component {
       .then(featuredMedia => this.setState({ featuredMedia }));
   }
 
+  componentDidUpdate(prevProps) {
+    const { thumbnail, post } = this.props;
+    if (!thumbnail && prevProps.post.id !== post.id) {
+      this.ref.scrollIntoView(true);
+    }
+  }
+
   render() {
     const { post, thumbnail, basePath } = this.props;
     const { featuredMedia } = this.state;
@@ -30,7 +37,11 @@ export default class Post extends Component {
         <Thumbnail media={featuredMedia} post={post} />
       </Link>
     ) : (
-      <FullSize>
+      <FullSize
+        ref={(ref) => {
+          this.ref = ref;
+        }}
+      >
         <H2>
           <WpRendered rendered={path('title.rendered', post)} />
         </H2>
