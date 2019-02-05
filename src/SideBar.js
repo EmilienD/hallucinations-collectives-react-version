@@ -4,7 +4,8 @@ import {
 } from './Layout.style';
 import config from './config';
 
-const chainLinkArray = ['chaines2.svg', 'monkey.svg', 'knife.svg', 'paraplu.svg'];
+// const chainLinkArray = ['chaines2.svg', 'monkey.svg', 'knife.svg', 'paraplu.svg'];
+const chainLinkArray = ['NouvelleChaine.svg'];
 
 const chainLinkSource = chainLinkArray[Math.floor(Math.random() * chainLinkArray.length)];
 const rainDrops = new Array(6)
