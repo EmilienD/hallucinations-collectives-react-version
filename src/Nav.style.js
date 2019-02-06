@@ -37,6 +37,12 @@ export const Li = styled.li`
     color: red;
     overflow: visible;
     text-decoration: none;
-    filter: url('#wiggleFilter2');
+  }
+  @media screen and (min-width: ${Breakpoints.XL}px) {
+    a.current,
+    a:focus,
+    a:hover {
+      filter: url('#wiggleFilter2');
+    }
   }
 `;

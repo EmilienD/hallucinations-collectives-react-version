@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import WpRendered from '../helperComponents/WpRendered';
+import Breakpoints from '../helperComponents/Breakpoint';
 
 export const HomeStyle = styled(WpRendered)`
   background-color: rgba(255, 255, 255, 0.8);
@@ -13,7 +14,10 @@ export const HomeStyle = styled(WpRendered)`
     overflow: visible;
     text-decoration: none;
   }
-  a:hover {
-    filter: url('#wiggleFilter2');
+
+  @media screen and (min-width: ${Breakpoints.XL}px) {
+    a:hover {
+      filter: url('#wiggleFilter2');
+    }
   }
 `;
