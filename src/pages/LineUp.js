@@ -110,7 +110,19 @@ export default class LineUp extends Component {
     const selectedPost = lineUpPosts.find(this.isSelectedPost) || null;
     return (
       <LineupContainer>
-        {selectedPost && <Post post={selectedPost} thumbnail={false} />}
+        {selectedPost && (
+          <Post
+            post={selectedPost}
+            thumbnail={false}
+            date={
+              (
+                lineUpTags.find(
+                  t => DATE_TAG_REGEX.test(t.name) && selectedPost.tags.includes(t.id),
+                ) || {}
+              ).name
+            }
+          />
+        )}
         <TagSelector tags={lineUpTags} location={location} />
         <ThumbnailContainer>
           {lineUpPosts
