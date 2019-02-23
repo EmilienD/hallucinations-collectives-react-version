@@ -1,6 +1,8 @@
 cd build
 mv index.html front-page.php
 
+sed -i 's/<\/head>/<?php include "header.php" ?><\/head>/g' front-page.php
+
 echo "<?php
 
 require 'front-page.php';
@@ -8,5 +10,6 @@ require 'front-page.php';
 
 cp ../functions.php .
 cp ../style.css .
+cp ../header.php build
 
 zip -r ../hc.zip *

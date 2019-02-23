@@ -16,7 +16,8 @@
   "homepage": "http://hallucinations-collectives.be/wp-content/themes/hc-1",
   "scripts": {
     "start": "REACT_APP_BUILD='' react-scripts start",
-    "build": "REACT_APP_BUILD=1 react-scripts build",
+    "build": "REACT_APP_BUILD='local' react-scripts build",
+    "build:prod": "REACT_APP_BUILD='prod' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-to-theme": "./static-build-to-theme.sh"

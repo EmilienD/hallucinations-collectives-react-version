@@ -1,5 +1,5 @@
 export default {
-  wordpressBasePath: 'http://localhost:8000/wp-json/wp/v2',
-  publicRoot: '',
+  wordpressBasePath: '/wp-json/wp/v2',
+  publicRoot: '/wp-content/themes/hc-1',
   withFallingMan: false,
 };

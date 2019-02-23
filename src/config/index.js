@@ -1,6 +1,9 @@
 import local from './local';
 import prod from './prod';
 
-const config = process.env.REACT_APP_BUILD ? prod : local;
+const config = {
+  prod,
+  local,
+}[process.env.REACT_APP_BUILD] || local;
 
 export default config;

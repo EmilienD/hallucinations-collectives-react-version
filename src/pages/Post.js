@@ -44,7 +44,7 @@ export default class Post extends Component {
     ) : (
       <>
         <DocTitle>{`${date} - ${postTitle}`}</DocTitle>
-        <OpenGraph property="og:image" content={path('source_url', featuredMedia)} />
+        {/* <OpenGraph property="og:image" content={path('source_url', featuredMedia)} /> */}
         <FullSize
           ref={(ref) => {
             this.ref = ref;
