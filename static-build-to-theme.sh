@@ -10,6 +10,6 @@ require 'front-page.php';
 
 cp ../functions.php .
 cp ../style.css .
-cp ../header.php build
+cp ../header.php .
 
 zip -r ../hc.zip *
