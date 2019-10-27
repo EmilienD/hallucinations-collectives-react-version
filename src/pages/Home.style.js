@@ -11,6 +11,7 @@ export const HomeStyle = styled(WpRendered)`
   a {
     font-family: 'Hallu', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: red;
+    color: var(--secondaryColor);
     overflow: visible;
     text-decoration: none;
   }

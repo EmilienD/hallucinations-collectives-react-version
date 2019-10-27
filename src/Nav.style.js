@@ -13,6 +13,7 @@ export const Ul = styled.ul`
   margin: 0;
   padding: 2em 0 0 0;
   color: #000;
+  color: var(--primary-color);
 `;
 
 export const Li = styled.li`
@@ -29,12 +30,14 @@ export const Li = styled.li`
   a:visited {
     text-decoration: none;
     color: #000;
+    color: var(--primary-color);
     outline: none;
   }
   a.current,
   a:focus,
   a:hover {
     color: red;
+    color: var(--secondaryColor);
     overflow: visible;
     text-decoration: none;
   }

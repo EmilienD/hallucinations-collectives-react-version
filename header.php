@@ -25,3 +25,8 @@
 <?php
 }
 ?>
+<style>
+<?php echo wp_get_custom_css();
+?>
+
+</style>

@@ -16,17 +16,19 @@ const TagListItem = styled.li`
   a {
     background-color: white;
     color: black;
+    color: var(--primary-color);
     border: 1px solid black;
+    border: 1px solid var(--primary-color);
     padding: 0.5em 1em;
     border-radius: 1em;
     margin: 0.5em;
     display: block;
     text-decoration: none;
-    color: black;
   }
   &:hover a,
   &.selected a {
     background-color: black;
+    background-color: var(--primary-color);
     color: white;
   }
 `;
