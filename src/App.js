@@ -39,7 +39,10 @@ const App = () => (
           <Route path="/programmation/:band?" render={route => <LineUp route={route} />} />
           <Route path="/infos-pratiques" render={() => <StandardPage slug="infos-pratiques" />} />
           <Route path="/a-propos" render={() => <StandardPage slug="a-propos" />} />
-          <Route path="/contributions" render={() => <StandardPage slug="contributions" />} />
+          <Route
+            path="/editions-precedentes"
+            render={() => <StandardPage slug="editions-precedentes" />}
+          />
           <Route from="/tickets" render={() => <StandardPage slug="tickets" />} />
           <Redirect from="/" to="/accueil" />
           <Route component={() => <h1>Quatre Sans Quatre</h1>} />

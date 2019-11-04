@@ -24,7 +24,7 @@ const Nav = () => (
       <NavItem to="/infos-pratiques">Infos Pratiques</NavItem>
       <NavItem to="/programmation">Programmation</NavItem>
       <NavItem to="/a-propos">À propos</NavItem>
-      <NavItem to="/contributions">Contributions</NavItem>
+      <NavItem to="/editions-precedentes">Éditions précédentes</NavItem>
     </Ul>
   </NavStyle>
 );
