@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import Breakpoints from './helperComponents/Breakpoint';
+import styled from "styled-components";
+import Breakpoints from "./helperComponents/Breakpoint";
 
 export const NavStyle = styled.nav``;
 
 export const Ul = styled.ul`
-  font-family: Hallu, Helvetica, Arial, sans-serif;
+  font-family: "navfont", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   display: flex;
   flex-wrap: wrap;
@@ -13,7 +13,7 @@ export const Ul = styled.ul`
   margin: 0;
   padding: 2em 0 0 0;
   color: #000;
-  color: var(--primary-color);
+  color: var(--nav-primary-color);
 `;
 
 export const Li = styled.li`
@@ -30,14 +30,14 @@ export const Li = styled.li`
   a:visited {
     text-decoration: none;
     color: #000;
-    color: var(--primary-color);
+    color: var(--nav-primary-color);
     outline: none;
   }
   a.current,
   a:focus,
   a:hover {
     color: red;
-    color: var(--secondaryColor);
+    color: var(--nav-secondary-color);
     overflow: visible;
     text-decoration: none;
   }
@@ -45,7 +45,7 @@ export const Li = styled.li`
     a.current,
     a:focus,
     a:hover {
-      filter: url('#wiggleFilter2');
+      filter: url("#wiggleFilter2");
     }
   }
 `;

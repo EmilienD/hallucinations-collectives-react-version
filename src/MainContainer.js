@@ -1,30 +1,22 @@
-import React, { Fragment } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import PropTypes from 'prop-types';
-import Breakpoint from './helperComponents/Breakpoint';
-import FallingWilhelm from './FallingWilhelm';
-import config from './config';
+import React, { Fragment } from "react";
+import { createGlobalStyle } from "styled-components";
+import PropTypes from "prop-types";
+import Breakpoint from "./helperComponents/Breakpoint";
+import FallingWilhelm from "./FallingWilhelm";
+import config from "./config";
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: "Hallu";
-    src: url("${config.publicRoot}/assets/Animals.ttf") format("truetype");
-  }
-  @font-face {
-    font-family: "Main";
-    src: url("${config.publicRoot}/assets/zai_ConsulPolishTypewriter.ttf") format("truetype");
-  }
   body {
     scroll-behavior: smooth;
-    font-family: 'Main', 'Courier New', Courier, monospace;
     margin: 0;
     font-size: 22px;
   }
   #wavyBackground {
-    background-image: url('${config.publicRoot}/assets/bg006.jpg');
     filter: url("#wiggleFilter3");
     width: 100vw;
     height: 100vh;
+    background-size: cover;
+    background-position: center;
   }
   body > div {
     position: relative;
@@ -43,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MainContainer = (props) => {
+const MainContainer = props => {
   const { children } = props;
   return (
     <Fragment>
@@ -51,14 +43,18 @@ const MainContainer = (props) => {
       {config.withFallingMan && <FallingWilhelm />}
       <svg
         style={{
-          position: 'fixed',
+          position: "fixed",
           width: 0,
           height: 0,
-          pointerEvents: 'none',
+          pointerEvents: "none"
         }}
       >
         <filter id="wiggleFilter">
-          <feTurbulence type="fractalNoise" baseFrequency="0.001" numOctaves="2">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.001"
+            numOctaves="2"
+          >
             <animate
               attributeName="baseFrequency"
               values="0.01; 0.015; 0.02; 0.025; 0.03; 0.025; 0.02; 0.015"
@@ -90,7 +86,12 @@ const MainContainer = (props) => {
           />
         </filter>
         <filter id="wiggleFilter3" x="0" y="0" width="100%" height="100%">
-          <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05">
+          <feTurbulence
+            id="sea-filter"
+            numOctaves="3"
+            seed="2"
+            baseFrequency="0.02 0.05"
+          >
             <animate
               attributeName="baseFrequency"
               dur="60s"
@@ -107,7 +108,7 @@ const MainContainer = (props) => {
   );
 };
 MainContainer.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default MainContainer;
