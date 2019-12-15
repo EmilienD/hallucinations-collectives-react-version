@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 22px;
   }
   #wavyBackground {
-    filter: url("#wiggleFilter3");
     width: 100vw;
     height: 100vh;
     background-size: cover;
