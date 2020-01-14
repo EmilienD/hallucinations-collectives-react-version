@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import queryString from 'query-string';
-import assoc from 'lodash/fp/assoc';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import queryString from "query-string";
+import assoc from "lodash/fp/assoc";
 
 const TagList = styled.ul`
   list-style-type: none;
@@ -14,9 +14,8 @@ const TagList = styled.ul`
 
 const TagListItem = styled.li`
   a {
-    background-color: white;
-    color: black;
-    color: var(--primary-color);
+    color: white;
+    background-color: var(--primary-color);
     border: 1px solid black;
     border: 1px solid var(--primary-color);
     padding: 0.5em 1em;
@@ -27,18 +26,22 @@ const TagListItem = styled.li`
   }
   &:hover a,
   &.selected a {
-    background-color: black;
-    background-color: var(--primary-color);
-    color: white;
+    color: var(--primary-color);
+    background-color: white;
   }
 `;
 
-const getSearchedTagsArray = parsedSearch => [].concat((parsedSearch.tags || '').split(',').filter(t => t)).map(Number);
+const getSearchedTagsArray = parsedSearch =>
+  [].concat((parsedSearch.tags || "").split(",").filter(t => t)).map(Number);
 
 const toggleTagSearch = (tagId, parsedSearch) => {
   const currentSearchTag = Number(parsedSearch.tags);
   const removeTag = tagId === currentSearchTag;
-  const newParsedSearch = assoc('tags', removeTag ? undefined : tagId, parsedSearch);
+  const newParsedSearch = assoc(
+    "tags",
+    removeTag ? undefined : tagId,
+    parsedSearch
+  );
   return newParsedSearch;
 };
 // Cumulative add tag
@@ -68,12 +71,17 @@ const TagSelector = ({ tags, location }) => {
       {tags.map(t => (
         <TagListItem
           key={t.id}
-          className={searchedTags.find(tagId => tagId === t.id) ? 'selected' : ''}
+          className={
+            searchedTags.find(tagId => tagId === t.id) ? "selected" : ""
+          }
         >
           <Link
-            to={`${pathname}?${queryString.stringify(toggleTagSearch(t.id, parsedSearch), {
-              encode: false,
-            })}`}
+            to={`${pathname}?${queryString.stringify(
+              toggleTagSearch(t.id, parsedSearch),
+              {
+                encode: false
+              }
+            )}`}
           >
             {t.name}
           </Link>

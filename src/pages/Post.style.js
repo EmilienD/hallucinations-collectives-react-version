@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Thumbnail = styled.div`
   background-image: url("${props => props.backgroundImage}");
@@ -16,10 +16,11 @@ export const Thumbnail = styled.div`
     display: initial;
   }
   &:hover {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 100%), url("${props => props.backgroundImage}");
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 100%), url("${props =>
+      props.backgroundImage}");
   }
 `;
-export const FullSize = styled('article')`
+export const FullSize = styled("article")`
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 1em;
   flex-grow: 2;
@@ -31,8 +32,7 @@ export const FullSize = styled('article')`
     position: relative;
   }
   .wp-block-image figcaption {
-    position: absolute;
-    bottom: 0;
+    font-size: 0.7em;
   }
 `;
 export const H2 = styled.h2``;
