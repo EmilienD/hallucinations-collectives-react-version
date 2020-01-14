@@ -21,13 +21,16 @@ export default class Post extends Component {
     const { post } = this.props;
     wpService
       .getMediaById(post.featured_media)
-      .then(featuredMedia => this.setState({ featuredMedia }));
+      .then(featuredMedia => this.setState({ featuredMedia }))
+      .then(() => {
+        document.getElementById("scrollContainer").scrollTo(0, 0);
+      });
   }
 
   componentDidUpdate(prevProps) {
     const { thumbnail, post } = this.props;
     if (!thumbnail && prevProps.post.id !== post.id) {
-      window.scrollTo(0, 0);
+      document.getElementById("scrollContainer").scrollTo(0, 0);
     }
   }
 
